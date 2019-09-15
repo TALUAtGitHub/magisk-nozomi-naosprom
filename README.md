@@ -4,7 +4,7 @@ This script installs Magisk to a Sony Xperia S running nAOSProm.
 
 Thanks to @rINanDO for figuring out how to install Magisk on the Samsung Galaxy S2 running LineageOS 16.0 as I have used some of his work in this script.
 
-This script is untested on the Sony Xperia Arco S (though it may work on that device) and other ROMs such as older nAOSProm ROMs (though it may still work on those older ROMs).
+This script is untested on the Sony Xperia Acro S (though it may work on that device) and other ROMs such as older nAOSProm ROMs (though it may still work on those older ROMs).
 
 Warning: if something happens to go wrong, as this script writes to the boot partition (/dev/block/mmcblk0p3), you will need to re-flash the boot partition with a boot image with fastboot ("fastboot flash boot boot_image.img") (enter fastboot by making sure the phone is powered off, then pressing the volume up button while plugging in a working MicroUSB cable, making sure the indicator LED is blue meaning fastboot mode and issuing the fastboot flash command. The black screen if something does go wrong in this script doesn't mean your phone is hard bricked, we aren't touching the bootloader, if the bootloader doesn't find a valid kernel, it will mislead you and make you think your phone is bricked by showing a black screen. This will still work.) or push the boot image with adb ("adb push") or copy it to the device via MTP and install it in TWRP while you're still booted using the "Install image" option in the usual "Install" feature in TWRP and then flashing to "boot" (options would be "boot" and "fota") to boot your phone, though you may have lost system root as the Magisk installer removes system root.
 Make sure you have a good nandroid backup ready in case!
