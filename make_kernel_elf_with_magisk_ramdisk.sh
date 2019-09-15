@@ -14,7 +14,7 @@ echo "** Sony Xperia S booted into TWRP **"
 echo "** adb, python2, fastboot (in case of a problem), p7zip, mkbootimg and abootimg installed. **"
 echo "** Magisk installation zip on your device's internal storage ready to flash. **"
 echo "** boot.img extracted from the ROM installation zip**"
-echo "** (optional) Your own kernel built from source ("kernel" file needs to be renamed to built_kernel.img. If not provided, kernel in the boot image provided will be used.  **"
+echo "** (optional) Your own kernel built from source ("kernel" file needs to be renamed to built_kernel.img. If not provided, kernel in the boot image provided will be used.)  **"
 echo ""
 echo -n "Have you booted into TWRP and are ready to start installing Magisk? (y/N) "
 read USERINPUT
