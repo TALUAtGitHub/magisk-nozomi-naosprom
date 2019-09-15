@@ -57,11 +57,11 @@ case $USERINPUT in
 	mv initrd.img 1
 
 	echo "Using python2 mkelf.py script to make kernel in elf format from files 0 (now custom kernel if one was provided, otherwise still original), 1 (now magisk ramdisk) and 2..."
-	python2 mkelf.py -o final_kernel_with_magisk.img 0@0x40208000 1@0x41500000,ramdisk 2@0x20000,rpm
+	python2 mkelf.py -o final_kernel_with_magisk_ramdisk.img 0@0x40208000 1@0x41500000,ramdisk 2@0x20000,rpm
 
 	echo "Pushing final kernel with ramdisk including Magisk to boot partition and /sdcard/final_kernel_with_magisk.img..."
-	adb push final_kernel_with_magisk.img /dev/block/mmcblk0p3
-	adb push final_kernel_with_magisk.img /sdcard/
+	adb push final_kernel_with_magisk_ramdisk.img /dev/block/mmcblk0p3
+	adb push final_kernel_with_magisk_ramdisk.img /sdcard/
 
 	echo "Cleaning up..."
 	rm 0 1 2 blank_kernel_file zImage_blank_kernel_original_ramdisk.img
