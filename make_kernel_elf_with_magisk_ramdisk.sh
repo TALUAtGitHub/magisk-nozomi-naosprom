@@ -66,7 +66,7 @@ case $USERINPUT in
 	echo "Cleaning up..."
 	rm 0 1 2 blank_kernel_file zImage_blank_kernel_original_ramdisk.img
 
-	echo "If there weren't any errors, Magisk should now be installed! If Magisk Manager isn't installed on boot, manually install the apk from the thread of your Magisk branch. Enjoy."
+	echo "If there weren't any errors, Magisk should now be installed! If Magisk Manager isn't installed on boot, manually install the apk from the XDA thread of your chosen Magisk update channel. Enjoy."
 	echo -n "Would you like to reboot? [y/N] "
 	read USERINPUT
 	case $USERINPUT in
