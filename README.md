@@ -12,11 +12,7 @@ Make sure you have a good nandroid backup ready in case!
 The reason magisk won't install with TWRP and tell you to use @AdrianDC's boot bridge is because the kernel is in elf format on Sony devices. Boot bridge doesn't seem to work, however, even when compiled for the Xperia S. In this script, we extract the boot image with 7z (leaving us with files 0 (kernel), 1 (ramdisk), and 2 (RPM or "resource power management")), converting the ramdisk ("1") to a zImage with a blank (otherwise non-existent) kernel (so technically zImage consisting of just the ramdisk), writing the zImage to the boot image, install magisk in TWRP, pull the new zImage from the boot partition with the new ramdisk including magisk, extract the ramdisk, replace the "1" ramdisk file with the new ramdisk, using the python script "mkelf.py" to merge the "0", "1", and "2" files into one, final boot image in elf format and then pushing it to the boot partition. One of the formats the magisk installer supports without additional scripts is zImage with only a ramdisk."
 
 ## Requirements:
-Sony Xperia S booted into TWRP
-adb, python2, fastboot (in case of a problem), p7zip, mkbootimg and abootimg installed.
-Magisk installation zip on your device's internal storage ready to flash.
-boot.img extracted from the ROM installation zip
-(optional) Your own kernel built from source ("kernel" file needs to be renamed to built_kernel.img. If not provided, kernel in the boot image provided will be used.
+Sony Xperia S booted into TWRP, adb, python2, fastboot (in case of a problem), p7zip, mkbootimg and abootimg installed, the Magisk installation zip on your device's internal storage ready to flash and a boot image (boot.img) extracted from the ROM installation zip. Optionally, you can have your own kernel built from source ("kernel" file needs to be renamed to built_kernel.img. If not provided, kernel in the boot image (boot.img) provided will be used.)
 
 ## Usage:
 To run this script after making sure the requirements are met, run 
