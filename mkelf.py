@@ -124,12 +124,12 @@ def write_elf_phdr(elf, seg):
         flags = P_FLAGS_IPL
     elif seg['flags'] == 'cmdline':
         flags = P_FLAGS_CMDLINE
-        type = PT_NOTE
+        type0 = PT_NOTE
     elif seg['flags'] == 'rpm':
         flags = P_FLAGS_RPM
 
     elfphdr = {
-        'p_type': type,
+        'p_type': type0,
         'p_offset': seg['offset'],
         'p_vaddr': long(seg['addr'], 16),
         'p_paddr': long(seg['addr'], 16),
