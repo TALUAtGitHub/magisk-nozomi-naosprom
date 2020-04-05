@@ -81,9 +81,9 @@ def parse_inputs(args):
                 seg['addr'] = '0'
                 seg['flags'] = 'cmdline'
             else:
-                input = re.match("^(0x[0-9a-fA-F]+)(?:,(ramdisk|ipl|entry|rpm))?$", tokens[1]).groups()
-                seg['addr'] = input[0]
-                seg['flags'] = input[1]
+                input0 = re.match("^(0x[0-9a-fA-F]+)(?:,(ramdisk|ipl|entry|rpm))?$", tokens[1]).groups()
+                seg['addr'] = input0[0]
+                seg['flags'] = input0[1]
             segs.append(seg)
         except AttributeError:
             fatal("Incorrect format of input parameter: " + arg)
@@ -115,7 +115,7 @@ def write_elf_header(elf, entry, phnum):
                            elfhdr['e_shnum'], elfhdr['e_shstrndx']))
 
 def write_elf_phdr(elf, seg):
-    type = PT_LOAD
+    type0 = PT_LOAD
     flags = 0
 
     if seg['flags'] == 'ramdisk':
@@ -186,4 +186,3 @@ def main(args):
 
 if __name__ == "__main__":
     main(sys.argv[1:])
-
