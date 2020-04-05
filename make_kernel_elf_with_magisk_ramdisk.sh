@@ -16,8 +16,8 @@ echo "** Magisk installation zip on your device's internal storage ready to flas
 echo "** boot.img extracted from the ROM installation zip**"
 echo "** (optional) Your own kernel built from source ("kernel" file needs to be renamed to built_kernel.img. If not provided, kernel in the boot image provided will be used.)  **"
 echo ""
-echo -n "Have you booted into TWRP and are ready to start installing Magisk? (y/N) "
-read USERINPUT
+echo "Have you booted into TWRP and are ready to start installing Magisk? (y/N) "
+read -r USERINPUT
 case $USERINPUT in
  y|Y)
 	if [ ! -f boot.img ]; then
@@ -41,7 +41,8 @@ case $USERINPUT in
 	adb push zImage_blank_kernel_original_ramdisk.img /dev/block/mmcblk0p3
 
 	echo "Install Magisk in TWRP now!"
-	read -p "Press Enter to continue after installing Magisk in TWRP..."
+	echo "Press Enter to continue after installing Magisk in TWRP..."
+	read -r
 	echo ""
 
 	echo "Pulling Magisk modified boot partition (no kernel, ramdisk now has Magisk)..."
@@ -67,8 +68,8 @@ case $USERINPUT in
 	rm 0 1 2 blank_kernel_file zImage_blank_kernel_original_ramdisk.img
 
 	echo "If there weren't any errors, Magisk should now be installed! If Magisk Manager isn't installed on boot, manually install the apk from the XDA thread of your chosen Magisk update channel. Enjoy."
-	echo -n "Would you like to reboot? [y/N] "
-	read USERINPUT
+	echo "Would you like to reboot? [y/N] "
+	read -r USERINPUT
 	case $USERINPUT in
 	 y|Y)
 		echo "** Final boot image with kernel and magisk ramdisk is located in the directory this script is in/run from and named "final_kernel_with_magisk.img", though this has already been pushed to the boot partition and /sdcard as a file on the device. **"
@@ -85,6 +86,6 @@ case $USERINPUT in
 esac
 case $USERINPUT in
  n|N)
-	echo "Cancelled."
+	echo "Exiting..."
 	exit
 esac
